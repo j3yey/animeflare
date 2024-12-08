@@ -1,6 +1,7 @@
 import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core';
 
-export const user = sqliteTable('user', {
-	id: integer('id').primaryKey(),
-	age: integer('age')
+export const tblUsers = sqliteTable('tblUsers', {
+	id: integer('id').primaryKey({autoIncrement: true}),
+	username: text("username").unique().notNull(),
+	password: text("password").notNull(),
 });
